@@ -1,0 +1,22 @@
+# Palmer Penguins EDA & Interactive Web Dashboard — Professional Python Data Analysis
+# Author: Jean Carlos Rojas Herrera (RojasJeanDL)
+#
+# Lower bounds reflect the versions this project is actually tested against
+# (see TESTING_REPORT.md). streamlit>=1.49 is a hard floor, not a preference:
+# app.py uses the width="stretch" sizing API introduced in that release.
+
+pandas>=2.2.0
+numpy>=1.26.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+scipy>=1.11.0
+
+# Interactive dashboard
+streamlit>=1.49.0
+plotly>=5.20.0
+statsmodels>=0.14.0
+
+# Notebook environment
+jupyter>=1.0.0
+notebook>=7.0.0
+ipykernel>=6.25.0

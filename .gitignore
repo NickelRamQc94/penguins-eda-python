@@ -1,0 +1,60 @@
+# Python & Jupyter cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Test & tooling caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Machine-specific desktop launcher (generate with scripts/install_linux_shortcut.sh)
+*.desktop
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# macOS / Windows OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# VS Code / IDE settings
+# Shared workspace configuration is versioned so that a fresh clone resolves
+# the virtual environment and the test runner without manual setup. Personal
+# IDE state (debug targets, per-user overrides) stays local.
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*.swo
+.idea/
+
+# Agent configuration logs
+.agent_scratch/
+*.log
+
+# ==============================================================================
+# Internal orchestration & project-management artefacts (local-only tooling).
+# The public repository ships the analytical deliverable, not the scaffolding
+# used to build it: agent directives and the multi-project portfolio roadmap
+# are development tools, not part of the solution.
+# ==============================================================================
+CLAUDE.md
+Claude.md
+GEMINI.md
+ESTADO_DEL_SISTEMA.md
+.agent/
