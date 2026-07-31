@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Run test suite
+        # Verifies the cleaning contract, every statistic quoted in the README,
+        # the chart legend bindings, and the dashboard's error states.
+        run: pytest tests/ -v
+
+      - name: Verify chart export pipeline is reproducible
+        run: |
+          python src/generate_charts.py
+          git diff --stat -- images/
+
+      - name: Verify the notebook still executes end to end
+        run: |
+          jupyter nbconvert --to notebook --execute \
+            --ExecutePreprocessor.timeout=300 \
+            --output /tmp/executed.ipynb notebooks/penguins_eda.ipynb

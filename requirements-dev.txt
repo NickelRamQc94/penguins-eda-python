@@ -1,0 +1,7 @@
+# Development & QA dependencies (not required to run the project)
+# Install with: pip install -r requirements.txt -r requirements-dev.txt
+
+-r requirements.txt
+
+pytest>=8.0.0
+nbconvert>=7.0.0
